@@ -14,9 +14,9 @@ app.title("Encrypted Messaging")
 
 def flip_states(widgets:list):
     for widget in widgets:
-        if widget.state == tkinter.NORMAL:
+        if widget._state == tkinter.NORMAL:
             widget.configure(state=tkinter.DISABLED)
-        elif widget.state == tkinter.DISABLED:
+        elif widget._state == tkinter.DISABLED:
             widget.configure(state=tkinter.NORMAL)
 
 
@@ -48,7 +48,7 @@ def recieve_messages():
         message = chat_obj.recieve_message()
         if type(message) == str:
             print(type(message))
-            add_text((f"Person: {message}\n"), "other")
+            add_text((f"{message}\n"), "other")
         else:
             add_text(f"Conn Closed {message}\n", "error")
             close_connection()
