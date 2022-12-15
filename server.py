@@ -65,7 +65,8 @@ class server:
         self.clients = []
         self.nicknames = []
 
-    def broadcast(self, clients, message, send_nick = "") -> None:
+    @staticmethod
+    def broadcast(clients, message, send_nick = "") -> None:
         if (clients != []) and (type(clients) == list):
             for client in clients:
                 client.send_message(message, send_nick)
