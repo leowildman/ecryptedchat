@@ -1,6 +1,7 @@
 import socket
 
 import rsa
+import sys
 
 class chat:
     def __init__(self, is_server:bool, address:str, port:int, logging, message_bytes:int=2048) -> None:
@@ -45,7 +46,7 @@ class chat:
                     break
                 except ConnectionRefusedError:
                     if tries > 50:
-                        exit()
+                        sys.exit()
                     else:
                         tries += 1
                         continue
