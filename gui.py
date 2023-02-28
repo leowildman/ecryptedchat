@@ -46,7 +46,7 @@ def send_message():
 def recieve_messages():
     while 1:
         message = chat_obj.recieve_message()
-        if type(message) == str:
+        if type(message) is str:
             print(type(message))
             add_text((f"{message}\n"), "other")
         else:
