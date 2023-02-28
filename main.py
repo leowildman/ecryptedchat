@@ -25,7 +25,7 @@ class chat:
         """
         Begins server/client
         """
-        if self.is_server == True:
+        if self.is_server is True:
             self.server = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
             self.server.bind((self.address, self.port))
             self.server.listen()
@@ -36,7 +36,7 @@ class chat:
             self.partner_public_key = rsa.PublicKey.load_pkcs1(self.client.recv(self.message_bytes))
             self.logging("Keys Exchanged... Ready.\n", "log")
     
-        elif self.is_server == False:
+        elif self.is_server is False:
             tries = 0
             self.client = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
             self.logging("Client started! Searching for server...\n", "log")
