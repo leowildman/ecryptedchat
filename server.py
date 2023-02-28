@@ -29,9 +29,9 @@ class server_client:
         return self.nickname
     
     def send_message(self, message, nick=""):
-        if type(message) == bytes: message = message.decode()
+        if type(message) is bytes: message = message.decode()
         message = f"{nick}: {message}"
-        if type(message) == str: message = message.encode()
+        if type(message) is str: message = message.encode()
         
         
         encoded_encrypted_message = rsa.encrypt(message, self.public_key)
@@ -67,7 +67,7 @@ class server:
 
     @staticmethod
     def broadcast(clients, message, send_nick = "") -> None:
-        if (clients != []) and (type(clients) == list):
+        if (clients != []) and (type(clients) is list):
             for client in clients:
                 client.send_message(message, send_nick)
             
