@@ -52,7 +52,6 @@ def recieve_messages():
             add_text(f"Conn Closed {message}\n", "error")
             close_connection()
             break
-    return
 def close_connection():
     ready_radio.configure(border_color="yellow")
     flip_states([connect_btn, switch1, port, address, close_conn_btn, send_btn, message_inp, clear_btn])
